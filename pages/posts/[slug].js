@@ -55,6 +55,7 @@ export async function getStaticProps({ params }) {
     .substring(0, 158);
 
   postData.description = description;
+  postData.slug = params.slug;
 
   return {
     props: {

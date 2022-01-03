@@ -10,52 +10,36 @@ import {
   WhatsappShareButton,
   WhatsappIcon,
 } from "next-share";
-import { useRouter } from "next/router";
 
 export const SocialShareButton = ({ data }) => {
-  const { pathname } = useRouter();
-  let hostname = "";
-  let protocol = "https:";
-  if (typeof window !== "undefined") {
-    hostname = window.location.hostname;
-    protocol = window.location.hostname;
-  }
+  const hostname = process.env.hostname;
+  const fbid = process.env.fbid;
+  const url = `${hostname}posts/${data.slug}`;
 
   return (
     <div className={`my-4 space-x-2`}>
-      <FacebookShareButton
-        url={`${protocol}//${hostname}${pathname}`}
-        quote={data.title}
-        hashtag={"#nextshare"}
-      >
+      <FacebookShareButton url={url} quote={data.title} hashtag={"#nextshare"}>
         <FacebookIcon size={32} round />
       </FacebookShareButton>
 
-      <FacebookMessengerShareButton url={`${hostname}${pathname}`} appId={""}>
+      <FacebookMessengerShareButton url={url} appId={fbid}>
         <FacebookMessengerIcon size={32} round />
       </FacebookMessengerShareButton>
 
-      <WhatsappShareButton
-        url={`${protocol}//${hostname}${pathname}`}
-        title={data.title}
-        separator=":: "
-      >
+      <WhatsappShareButton url={url} title={data.title} separator=":: ">
         <WhatsappIcon size={32} round />
       </WhatsappShareButton>
 
       <LinkedinShareButton
-        url={`${protocol}//${hostname}${pathname}`}
+        url={url}
         title={data.title}
         summary={data.description}
-        source={`${protocol}//${hostname}`}
+        source={`${hostname}`}
       >
         <LinkedinIcon size={32} round />
       </LinkedinShareButton>
 
-      <LineShareButton
-        url={`${protocol}//${hostname}${pathname}`}
-        title={data.title}
-      >
+      <LineShareButton url={url} title={data.title}>
         <LineIcon size={32} round />
       </LineShareButton>
     </div>
