@@ -63,7 +63,6 @@ export async function getStaticProps({ params }) {
       seo: {
         title: postData.title,
         description: description,
-        titleTemplate: "%s | Kenas Zogara",
         openGraph: {
           title: postData.title,
           description: description,

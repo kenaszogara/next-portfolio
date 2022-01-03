@@ -88,7 +88,6 @@ export async function getStaticProps() {
       seo: {
         title: configData.title,
         description: configData.tagline,
-        titleTemplate: "%s | Kenas Zogara",
       },
     },
   };

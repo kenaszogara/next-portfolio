@@ -13,7 +13,6 @@ function MyApp({ Component, pageProps }) {
 
   const SEO = {
     ...(pageProps.seo != null ? { ...pageProps.seo } : {}),
-    defaultTitle: "Kenas Zogara",
   };
 
   return (
