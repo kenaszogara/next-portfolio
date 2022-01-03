@@ -1,26 +1,41 @@
 import ReactMarkdown from "react-markdown";
-import styles from "../../styles/Home.module.css";
 import configData from "../../config.json";
-import { getAllPostNames, getPostData } from "../../lib/posts";
+import { getAllPostNames, getPostData } from "../../src/lib/posts";
+import CodeBlock from "../../src/components/CodeBlock";
+import { format } from "date-fns";
+import { postBody } from "../../styles/Article.module.css";
+import { Footer } from "../../src/components/Footer";
+import { SocialShareButton } from "../../src/components/SocialShareButton";
 
 export default function Posts({ postData, configData }) {
   return (
-    <div>
-      <header></header>
+    <div className={`mt-4 md:mt-0`}>
       <main className="container p-8 mx-auto">
         <article className="max-w-4xl mx-auto">
-          <h1 className="text-4xl mb-8 text-center">{postData.title}</h1>
-          <h3 className="text-2xl mb-8 text-center">{postData.subtitle}</h3>
+          <header className={`text-center mb-12`}>
+            <a className={`block mb-10 underline`} href="/">
+              Go back to homepage
+            </a>
+            <h1 className="text-4xl font-bold mb-4">{postData.title}</h1>
+            <h3 className="text-xl font-semibold mb-4">{postData.subtitle}</h3>
+            <small className="text-sm">
+              Published {format(new Date(postData.date), "MMM d, yyyy")}
+            </small>
+
+            <SocialShareButton data={postData} />
+          </header>
+
           <ReactMarkdown
             children={postData.content}
-            className="markdown-body"
+            className={postBody}
+            components={{
+              code: CodeBlock,
+            }}
           />
         </article>
-        <section></section>
       </main>
-      <footer className={styles.footer}>
-        <p>{configData.footerContent}</p>
-      </footer>
+
+      <Footer config={configData} />
     </div>
   );
 }
@@ -35,10 +50,31 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const postData = await getPostData(params.slug);
+  const description = postData.content
+    .replace(/\r?\n|\r/gm, "")
+    .substring(0, 158);
+
+  postData.description = description;
+
   return {
     props: {
       postData,
       configData,
+      seo: {
+        title: postData.title,
+        description: description,
+        titleTemplate: "%s | Kenas Zogara",
+        openGraph: {
+          title: postData.title,
+          description: description,
+          url: `/posts/${params.slug}`,
+          type: "article",
+          article: {
+            publishedTime: postData.date,
+            tags: postData.tags,
+          },
+        },
+      },
     },
   };
 }

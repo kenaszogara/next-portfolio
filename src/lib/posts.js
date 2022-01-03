@@ -10,7 +10,7 @@ export async function getPostData(id) {
 
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
-  console.log(matterResult);
+  // console.log(matterResult);
   return {
     id,
     ...matterResult.data,
@@ -27,11 +27,13 @@ export function getAllPostNames() {
 
     // Use gray-matter to parse the post metadata section
     const matterResult = matter(fileContents);
+    const tags = "tags" in matterResult.data ? matterResult.data.tags : [];
 
     return {
       params: {
         slug: fileName.replace(/\.md$/, ""),
         ...matterResult.data,
+        tags,
       },
     };
   });

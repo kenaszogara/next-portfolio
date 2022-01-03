@@ -1,8 +1,12 @@
 {
   "title": "Hi, I'm Kenas",
-  "tagline": "I'm a software engineer who are currently living in Taiwan",
+  "tagline": "Welcome to my blogsite, here I share my works, projects, and code snippets",
   "logo": "/images/logo.png",
   "bgimage": "/images/header-bg.jpg",
-  "profilePic": "/images/profile.jpg",
-  "footerContent": "@kenaszogara 2020"
+  "profilePic": "/images/pixil-frame-0.png",
+  "footerContent": "@kenaszogara 2020",
+  "contact": {
+    "email": "kenaszogara@live.com",
+    "phone": "https://api.whatsapp.com/send/?phone=6282264639465&text=Hello%20Kenas%20Zogara,%20nice%20to%20meet%20you!"
+  }
 }
