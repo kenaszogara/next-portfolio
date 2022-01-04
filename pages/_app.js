@@ -1,11 +1,8 @@
 import "../styles/globals.css";
-// import "../styles/github-markdown.css";
 import { ThemeProvider, useTheme } from "next-themes";
-import { Navbar, NavbarProvider } from "../src/components/Navbar";
 import Head from "next/head";
 import { DefaultSeo } from "next-seo";
 import React from "react";
-import { isMobile } from "react-device-detect";
 
 function MyApp({ Component, pageProps }) {
   const { setTheme } = useTheme();
@@ -28,7 +25,6 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
       <ThemeProvider attribute="class">
-        {!isMobile && <Navbar />}
         <Component {...pageProps} />
       </ThemeProvider>
     </React.Fragment>

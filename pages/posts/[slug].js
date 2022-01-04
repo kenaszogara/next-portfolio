@@ -32,6 +32,11 @@ export default function Posts({ postData, configData }) {
               code: CodeBlock,
             }}
           />
+
+          <div className={`text-center mt-20`}>
+            <p>Share this on:</p>
+            <SocialShareButton data={postData} />
+          </div>
         </article>
       </main>
 
