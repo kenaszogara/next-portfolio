@@ -38,3 +38,11 @@ export function getAllPostNames() {
     };
   });
 }
+
+export function getAllPostPagesPath() {
+  const fileNames = fs.readdirSync(postsDirectory);
+
+  return fileNames.map(
+    (fileName) => `${postsDirectory}/${fileName.replace(/\.md$/, "")}`
+  );
+}
