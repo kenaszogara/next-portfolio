@@ -16,6 +16,10 @@ function MyApp({ Component, pageProps }) {
     <React.Fragment>
       <DefaultSeo {...SEO} />
       <Head>
+        <meta
+          name="google-site-verification"
+          content="a3dKhMxZBxIZ4IFmU6vm-YCXAgHanJDjnZeRg2aqqU4"
+        />
         <link
           rel="icon"
           href="/images/pixil-frame-0.png"
