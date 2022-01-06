@@ -1,6 +1,7 @@
 ---
 title: "How to Create Dark Mode Toggle Button in Next.js"
 date: "2022-01-03"
+image: "/images/posts/nextjs_dark_mode_theme.png"
 tags: ["Next.js"]
 ---
 

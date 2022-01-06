@@ -1,6 +1,7 @@
 ---
 title: "How to add TailwindCSS to Next.js Project"
 date: "2022-01-03"
+image: "/images/posts/nextjs_with_tailwind.png"
 tags: ["Next.js", "TailwindCSS"]
 ---
 

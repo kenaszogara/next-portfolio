@@ -32,6 +32,10 @@ function MyApp({ Component, pageProps }) {
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
         />
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.min.css"
+        />
       </Head>
       <ThemeProvider attribute="class">
         <Component {...pageProps} />

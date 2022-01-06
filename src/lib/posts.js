@@ -10,9 +10,19 @@ export async function getPostData(id) {
 
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
-  // console.log(matterResult);
+
+  // check if tags empty
+  const tags = "tags" in matterResult.data ? matterResult.data.tags : [];
+
+  // use placeholder if image not found
+  const imgPlaceholder = "/images/posts/placeholder.png";
+  const image =
+    "image" in matterResult.data ? matterResult.data.image : imgPlaceholder;
+
   return {
     id,
+    tags,
+    image,
     ...matterResult.data,
     content: matterResult.content,
   };

@@ -1,6 +1,7 @@
 ---
 title: "How to use SEO with Next.js"
 date: "2022-01-03"
+image: "/images/posts/seo_in_nextjs.png"
 tags: ["Next.js", "SEO"]
 ---
 
