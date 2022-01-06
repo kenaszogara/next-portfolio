@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://kenaszogara.vercel.app
+
+# Sitemaps
+Sitemap: https://kenaszogara.vercel.app/sitemap.xml

@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap --config sitemap.js",
     "start": "next start"
   },
   "dependencies": {
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.2.5",
+    "next-sitemap": "^1.6.203",
     "postcss": "^8.2.14",
     "tailwindcss": "^2.1.2"
   }
