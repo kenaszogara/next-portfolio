@@ -91,6 +91,7 @@ export async function getStaticProps({ params }) {
           article: {
             publishedTime: postData.date,
             tags: postData.tags,
+            authors: ["@kenaszogara"],
           },
           images: [
             {
