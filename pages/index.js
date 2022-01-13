@@ -25,30 +25,32 @@ export default function Home({ config, paths, tags }) {
         <div className={`${styles.grid} md:flex-col w-full px-4`}>
           {paths.map((path, index) => {
             return (
-              <Link href={`/posts/${path.params.slug}`} key={index}>
-                <a className={`${styles.card} flex-col md:flex-row w-full`}>
-                  <div className={` md:max-w-lg md:mb-0 md:mr-auto`}>
-                    <h3 className={`font-bold text-2xl mb-4  break-normal`}>
-                      {path.params.title}
-                    </h3>
-                    <div className={`flex flex-wrap flex-row`}>
-                      {path.params.tags.map((tag, i) => {
-                        return (
-                          <div
-                            key={i}
-                            className={`m-1 border-2 rounded px-2 py-1`}
-                          >
-                            {tag}
-                          </div>
-                        );
-                      })}
-                    </div>
+              <a
+                href={`/posts/${path.params.slug}`}
+                key={index}
+                className={`${styles.card} flex-col md:flex-row w-full`}
+              >
+                <div className={` md:max-w-lg md:mb-0 md:mr-auto`}>
+                  <h3 className={`font-bold text-2xl mb-4  break-normal`}>
+                    {path.params.title}
+                  </h3>
+                  <div className={`flex flex-wrap flex-row`}>
+                    {path.params.tags.map((tag, i) => {
+                      return (
+                        <div
+                          key={i}
+                          className={`m-1 border-2 rounded px-2 py-1`}
+                        >
+                          {tag}
+                        </div>
+                      );
+                    })}
                   </div>
-                  <p className={`font-normal`}>
-                    {format(new Date(path.params.date), "MMM d, yyyy")}
-                  </p>
-                </a>
-              </Link>
+                </div>
+                <p className={`font-normal`}>
+                  {format(new Date(path.params.date), "MMM d, yyyy")}
+                </p>
+              </a>
             );
           })}
         </div>
