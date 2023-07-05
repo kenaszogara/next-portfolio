@@ -8,11 +8,11 @@ import { Footer } from "../src/components/Footer";
 
 export default function Home({ config, paths, tags }) {
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} bg-dark-900 `}>
       <main className={`${styles.main} max-w-4xl`}>
         <div className={`flex-col text-center mb-40`}>
           <Image
-            className={`${styles.circular}`}
+            className={`${styles.circular} m-auto `}
             src={config.profilePic}
             alt="Picture of the author"
             width="150"
@@ -25,7 +25,7 @@ export default function Home({ config, paths, tags }) {
         <div className={`${styles.grid} md:flex-col w-full px-4`}>
           {paths.map((path, index) => {
             return (
-              <a
+              <Link
                 href={`/posts/${path.params.slug}`}
                 key={index}
                 className={`${styles.card} flex-col md:flex-row w-full`}
@@ -50,7 +50,7 @@ export default function Home({ config, paths, tags }) {
                 <p className={`font-normal`}>
                   {format(new Date(path.params.date), "MMM d, yyyy")}
                 </p>
-              </a>
+              </Link>
             );
           })}
         </div>

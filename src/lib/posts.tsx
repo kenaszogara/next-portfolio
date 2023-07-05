@@ -38,12 +38,17 @@ export function getAllPostNames() {
     // Use gray-matter to parse the post metadata section
     const matterResult = matter(fileContents);
     const tags = "tags" in matterResult.data ? matterResult.data.tags : [];
+    const date =
+      "date" in matterResult.data
+        ? matterResult.data.date
+        : new Date().toString();
 
     return {
       params: {
         slug: fileName.replace(/\.md$/, ""),
         ...matterResult.data,
         tags,
+        date,
       },
     };
   });
