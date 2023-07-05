@@ -12,27 +12,31 @@ export type MatterResultData = {
 };
 
 export async function getPostData(id) {
-  const fullPath = path.join(postsDirectory, `${id}.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
+  try {
+    const fullPath = path.join(postsDirectory, `${id}.md`);
+    const fileContents = fs.readFileSync(fullPath, "utf8");
 
-  // Use gray-matter to parse the post metadata section
-  const matterResult = matter(fileContents);
+    // Use gray-matter to parse the post metadata section
+    const matterResult = matter(fileContents);
 
-  // check if tags empty
-  const tags = "tags" in matterResult.data ? matterResult.data.tags : [];
+    // check if tags empty
+    const tags = "tags" in matterResult.data ? matterResult.data.tags : [];
 
-  // use placeholder if image not found
-  const imgPlaceholder = "/images/posts/placeholder.png";
-  const image =
-    "image" in matterResult.data ? matterResult.data.image : imgPlaceholder;
+    // use placeholder if image not found
+    const imgPlaceholder = "/images/posts/placeholder.png";
+    const image =
+      "image" in matterResult.data ? matterResult.data.image : imgPlaceholder;
 
-  return {
-    id,
-    tags,
-    image,
-    ...(matterResult.data as MatterResultData),
-    content: matterResult.content,
-  };
+    return {
+      id,
+      tags,
+      image,
+      ...(matterResult.data as MatterResultData),
+      content: matterResult.content,
+    };
+  } catch (error) {
+    return null;
+  }
 }
 
 export function getAllPostNames() {

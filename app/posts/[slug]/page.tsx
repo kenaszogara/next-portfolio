@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 import { getAllPostSlug, getPostData } from "@/lib/posts";
 import configData from "@/config/config.json";
 import CodeBlock from "@/components/CodeBlock";
-
+import { redirect } from "next/navigation";
 import styles from "@/styles/Article.module.css";
 
 type PageProps = {
@@ -27,6 +27,12 @@ export async function generateMetadata({ params, searchParams }: MetaProps) {
 
   // get post data
   const postData = await getPostData(slug);
+
+  if (postData === null)
+    return {
+      title: configData.title,
+      description: configData.tagline,
+    };
 
   const description = postData.content
     .replace(/\r?\n|\r/gm, "")
@@ -59,13 +65,22 @@ export async function generateMetadata({ params, searchParams }: MetaProps) {
 
 const getPostDataFromSlug = async (slug: string) => {
   const postData = await getPostData(slug);
-  const description = postData.content
-    .replace(/\r?\n|\r/gm, "")
-    .substring(0, 158);
+
+  if (postData === null) {
+    return {
+      postData: null,
+      slug,
+    };
+  }
+
+  const description =
+    postData?.content.replace(/\r?\n|\r/gm, "").substring(0, 158) ?? "";
 
   return {
-    ...postData,
-    description,
+    postData: {
+      ...postData,
+      description,
+    },
     slug,
   };
 };
@@ -79,8 +94,11 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: PageProps) {
-  console.log(params);
-  const postData = await getPostDataFromSlug(params.slug);
+  const { postData, slug } = await getPostDataFromSlug(params.slug);
+
+  if (postData === null) {
+    redirect("/404");
+  }
 
   return (
     <div className={`mt-4 md:mt-0`}>
@@ -92,20 +110,17 @@ export default async function Page({ params }: PageProps) {
         <article className="max-w-4xl mb-10 mx-auto bg-dark-800 md:rounded-md">
           <header className={`mb-12`}>
             <div className="px-6 pb-6 pt-12 ">
-              <h1 className="text-4xl font-bold mb-4">{postData.title}</h1>
-              {/* <h3 className="text-xl font-semibold mb-4">
-                {postData.subtitle}
-              </h3> */}
+              <h1 className="text-4xl font-bold mb-4">{postData?.title}</h1>
               <div className="flex items-baseline">
                 <p className="text-sm mr-auto">
-                  Published {format(new Date(postData.date), "MMM d, yyyy")}
+                  Published {format(new Date(postData?.date), "MMM d, yyyy")}
                 </p>
                 <SocialShareButton data={postData} />
               </div>
             </div>
             <div className="w-full md:rounded">
               <Image
-                src={postData.image}
+                src={postData?.image}
                 width={900}
                 height={500}
                 alt="post image"
@@ -114,7 +129,7 @@ export default async function Page({ params }: PageProps) {
           </header>
 
           <ReactMarkdown
-            children={postData.content}
+            children={postData?.content}
             className={`${styles.postBody} px-6 pb-6`}
             components={{
               code: CodeBlock as any,

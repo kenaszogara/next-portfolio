@@ -16,7 +16,7 @@ const getPathsData = async () => {
     }
   });
 
-  const allTags = [];
+  const allTags: string[] = [];
 
   // get all tags from posts
   paths.map((item) => {
