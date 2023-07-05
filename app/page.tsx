@@ -1,25 +1,53 @@
-import styles from "../styles/Home.module.css";
-import configData from "../config.json";
-import { getAllPostNames } from "../src/lib/posts";
-import Link from "next/link";
 import Image from "next/image";
+import styles from "@/styles/Home.module.css";
+import { getAllPostNames } from "@/lib/posts";
+import Link from "next/link";
 import { format } from "date-fns";
-import { Footer } from "../src/components/Footer";
+import { Footer } from "@/components/Footer";
+import configData from "@/config/config.json";
 
-export default function Home({ config, paths, tags }) {
+const getPathsData = async () => {
+  const paths = getAllPostNames();
+  paths.sort((a, b) => {
+    if (Date.parse(a.params.date) > Date.parse(b.params.date)) {
+      return -1;
+    } else {
+      return 1;
+    }
+  });
+
+  const allTags = [];
+
+  // get all tags from posts
+  paths.map((item) => {
+    item.params.tags.map((tag) => {
+      if (allTags.indexOf(tag) === -1) {
+        allTags.push(tag);
+      }
+    });
+  });
+
+  return { paths, tags: allTags };
+};
+
+export default async function Home() {
+  const { paths, tags } = await getPathsData();
+
   return (
     <div className={`${styles.container} bg-dark-900 `}>
       <main className={`${styles.main} max-w-4xl`}>
         <div className={`flex-col text-center mb-40`}>
           <Image
             className={`${styles.circular} m-auto `}
-            src={config.profilePic}
+            src={configData.profilePic}
             alt="Picture of the author"
             width="150"
             height="150"
           />
-          <h1 className={`${styles.title}`}>{config.title}</h1>
-          <p className={`${styles.description} p-3 mb-5`}>{config.tagline}</p>
+          <h1 className={`${styles.title}`}>{configData.title}</h1>
+          <p className={`${styles.description} p-3 mb-5`}>
+            {configData.tagline}
+          </p>
         </div>
 
         <div className={`${styles.grid} md:flex-col w-full px-4`}>
@@ -56,41 +84,7 @@ export default function Home({ config, paths, tags }) {
         </div>
       </main>
 
-      <Footer config={config} />
+      <Footer config={configData} />
     </div>
   );
-}
-
-export async function getStaticProps() {
-  const paths = getAllPostNames();
-  paths.sort((a, b) => {
-    if (Date.parse(a.params.date) > Date.parse(b.params.date)) {
-      return -1;
-    } else {
-      return 1;
-    }
-  });
-
-  const allTags = [];
-
-  // get all tags from posts
-  paths.map((item) => {
-    item.params.tags.map((tag) => {
-      if (allTags.indexOf(tag) === -1) {
-        allTags.push(tag);
-      }
-    });
-  });
-
-  return {
-    props: {
-      config: configData,
-      paths,
-      tags: allTags,
-      seo: {
-        title: configData.title,
-        description: configData.tagline,
-      },
-    },
-  };
 }

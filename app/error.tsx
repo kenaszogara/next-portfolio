@@ -1,3 +1,5 @@
+"use client";
+
 export default function Custom404() {
   return (
     <div className="flex flex-col justify-center items-center h-screen">

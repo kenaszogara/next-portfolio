@@ -1,4 +1,13 @@
-import React from "react";
+"use client";
+
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import ButtonToggleDarkMode from "../ButtonToggleDarkMode";
 
 const Navbar = () => {
@@ -53,18 +62,23 @@ const style = {
   },
 };
 
-const Context = React.createContext({});
+type ToggleCtx = {
+  toggle: any;
+  open: any;
+};
+
+const Context = createContext({} as ToggleCtx);
 
 const NavbarProvider = ({ children, className }) => {
-  const [open, setOpen] = React.useState(false);
-  const navbarRef = React.useRef(null);
+  const [open, setOpen] = useState(false);
+  const navbarRef = useRef(null);
 
-  const toggle = React.useCallback(() => {
+  const toggle = useCallback(() => {
     setOpen((prevState) => !prevState);
   }, []);
 
   // close navbar on click outside when viewport is less than 1024px
-  React.useEffect(() => {
+  useEffect(() => {
     const handleOutsideClick = (event) => {
       if (window.innerWidth < 1024) {
         if (!navbarRef.current?.contains(event.target)) {
@@ -86,7 +100,7 @@ const NavbarProvider = ({ children, className }) => {
   );
 };
 
-const useToggle = () => React.useContext(Context);
+const useToggle = () => useContext(Context);
 
 /* You can wrap the a tag with Link and pass href to Link if you are using either Create-React-App, Next.js or Gatsby */
 const NavbarBrand = ({ children, href }) => (

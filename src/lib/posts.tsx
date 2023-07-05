@@ -4,6 +4,13 @@ import matter from "gray-matter";
 
 const postsDirectory = "posts";
 
+export type MatterResultData = {
+  title: string;
+  tags: string[];
+  image: string;
+  date: string;
+};
+
 export async function getPostData(id) {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -23,7 +30,7 @@ export async function getPostData(id) {
     id,
     tags,
     image,
-    ...matterResult.data,
+    ...(matterResult.data as MatterResultData),
     content: matterResult.content,
   };
 }
@@ -37,8 +44,9 @@ export function getAllPostNames() {
 
     // Use gray-matter to parse the post metadata section
     const matterResult = matter(fileContents);
-    const tags = "tags" in matterResult.data ? matterResult.data.tags : [];
-    const date =
+    const tags: string[] =
+      "tags" in matterResult.data ? matterResult.data.tags : [];
+    const date: string =
       "date" in matterResult.data
         ? matterResult.data.date
         : new Date().toString();
@@ -46,7 +54,7 @@ export function getAllPostNames() {
     return {
       params: {
         slug: fileName.replace(/\.md$/, ""),
-        ...matterResult.data,
+        ...(matterResult.data as MatterResultData),
         tags,
         date,
       },
@@ -60,4 +68,10 @@ export function getAllPostPagesPath() {
   return fileNames.map(
     (fileName) => `${postsDirectory}/${fileName.replace(/\.md$/, "")}`
   );
+}
+
+export function getAllPostSlug() {
+  const fileNames = fs.readdirSync(postsDirectory);
+
+  return fileNames.map((fileName) => `${fileName.replace(/\.md$/, "")}`);
 }

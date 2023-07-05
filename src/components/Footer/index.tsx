@@ -1,4 +1,6 @@
-import { useRouter } from "next/router";
+"use client";
+
+import { usePathname } from "next/navigation";
 
 const styles = {
   container: `border-t-2 w-full my-10 text-center`,
@@ -6,7 +8,8 @@ const styles = {
 };
 
 export const Footer = ({ config }) => {
-  const { pathname } = useRouter();
+  const pathname = usePathname();
+
   return (
     <footer className={`${styles.container}`}>
       <section className={`my-6`}>

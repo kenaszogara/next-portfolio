@@ -1,17 +1,6 @@
-import {
-  LineShareButton,
-  LineIcon,
-  FacebookShareButton,
-  FacebookIcon,
-  FacebookMessengerShareButton,
-  FacebookMessengerIcon,
-  LinkedinShareButton,
-  LinkedinIcon,
-  WhatsappShareButton,
-  WhatsappIcon,
-} from "next-share";
+"use client";
 
-export const SocialShareButton = ({ data, className }) => {
+export const SocialShareButton = ({ data, className = "" }) => {
   const hostname = process.env.hostname;
   const fbid = process.env.fbid;
   const url = `${hostname}/posts/${data.slug}`;
