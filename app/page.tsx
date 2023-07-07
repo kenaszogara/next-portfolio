@@ -1,42 +1,92 @@
-import Image from "next/image";
-import styles from "@/styles/Home.module.css";
-import { getAllPostNames } from "@/lib/posts";
-import Link from "next/link";
-import { format } from "date-fns";
-import { Footer } from "@/components/Footer";
-import configData from "@/config/config.json";
+import Image from 'next/image';
+import styles from '@/styles/Home.module.scss';
+import { getAllPostNames } from '@/lib/posts';
+import Link from 'next/link';
+import { format } from 'date-fns';
+import { Footer } from '@/components/Footer';
+import configData from '@/config/config.json';
+import Trapesium from '@/components/Trapesium';
 
 const getPathsData = async () => {
-  const paths = getAllPostNames();
-  paths.sort((a, b) => {
-    if (Date.parse(a.params.date) > Date.parse(b.params.date)) {
-      return -1;
-    } else {
-      return 1;
-    }
-  });
+	const paths = getAllPostNames();
+	paths.sort((a, b) => {
+		if (Date.parse(a.params.date) > Date.parse(b.params.date)) {
+			return -1;
+		} else {
+			return 1;
+		}
+	});
 
-  const allTags: string[] = [];
+	const allTags: string[] = [];
 
-  // get all tags from posts
-  paths.map((item) => {
-    item.params.tags.map((tag) => {
-      if (allTags.indexOf(tag) === -1) {
-        allTags.push(tag);
-      }
-    });
-  });
+	// get all tags from posts
+	paths.map((item) => {
+		item.params.tags.map((tag) => {
+			if (allTags.indexOf(tag) === -1) {
+				allTags.push(tag);
+			}
+		});
+	});
 
-  return { paths, tags: allTags };
+	return { paths, tags: allTags };
 };
 
 export default async function Home() {
-  const { paths, tags } = await getPathsData();
+	const { paths, tags } = await getPathsData();
 
-  return (
-    <div className={`${styles.container} bg-dark-900 `}>
-      <main className={`${styles.main} max-w-4xl`}>
-        <div className={`flex-col text-center mb-40`}>
+	return (
+		<div className={`${styles.container} bg-dark-900 `}>
+			<main className={`${styles.main} max-w-4xl`}>
+				<h1 className={`${styles.title}`}>{configData.title}</h1>
+
+				<div className={styles.brand}>
+					<span
+						style={{
+							top: '0px',
+							position: 'absolute'
+						}}
+					>
+						<Trapesium width="97px" height="97px" />
+					</span>
+					<span
+						style={{
+							top: '102px',
+							right: '82px',
+							position: 'absolute'
+						}}
+					>
+						<Trapesium width="43px" height="43px" color="yellow" />
+					</span>
+					<span
+						style={{
+							bottom: '116px',
+							left: '5px',
+							position: 'absolute'
+						}}
+					>
+						<Trapesium width="29px" height="29px" color="blue" />
+					</span>
+					<span
+						style={{
+							bottom: '83px',
+							left: '83px',
+							position: 'absolute'
+						}}
+					>
+						<Trapesium width="59px" height="59px" color="red" />
+					</span>
+				</div>
+
+				<span
+					style={{
+						top: '76px',
+						left: '0px',
+						position: 'absolute'
+					}}
+				>
+					<Trapesium width="22px" height="22px" />
+				</span>
+				{/* <div className={`flex-col text-center mb-40`}>
           <Image
             className={`${styles.circular} m-auto `}
             src={configData.profilePic}
@@ -44,13 +94,12 @@ export default async function Home() {
             width="150"
             height="150"
           />
-          <h1 className={`${styles.title}`}>{configData.title}</h1>
           <p className={`${styles.description} p-3 mb-5`}>
             {configData.tagline}
           </p>
-        </div>
+        </div> */}
 
-        <div className={`${styles.grid} md:flex-col w-full px-4`}>
+				{/* <div className={`${styles.grid} md:flex-col w-full px-4`}>
           {paths.map((path, index) => {
             return (
               <Link
@@ -81,10 +130,10 @@ export default async function Home() {
               </Link>
             );
           })}
-        </div>
-      </main>
+        </div> */}
+			</main>
 
-      <Footer config={configData} />
-    </div>
-  );
+			<Footer config={configData} />
+		</div>
+	);
 }

@@ -1,0 +1,35 @@
+@import "@/styles/_colors.scss";
+
+@keyframes spin {
+  100% {
+    transform: rotate(-405deg);
+  }
+}
+
+.box {
+  border-radius: 5px;
+  transform: rotate(45deg);
+  position: absolute;
+
+  &:hover {
+    animation-name: spin;
+    animation-duration: 1300ms;
+    animation-iteration-count: 1;
+  }
+
+  &.green {
+    background-color: $green;
+  }
+
+  &.yellow {
+    background-color: $yellow;
+  }
+
+  &.red {
+    background-color: $red;
+  }
+
+  &.blue {
+    background-color: $blue;
+  }
+}

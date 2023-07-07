@@ -1,0 +1,33 @@
+// values to put in `max-width:...` or `@media (min-width:...)`
+$screen-1: 500px;
+$screen-2: 768px;
+$screen-3: 1024px;
+$screen-4: 1280px;
+$screen-5: 1440px;
+
+// breakpoint.scss config
+@mixin sm {
+  @media (min-width: $screen-1) {
+    @content;
+  }
+}
+@mixin md {
+  @media (min-width: $screen-2) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (min-width: $screen-3) {
+    @content;
+  }
+}
+@mixin xl {
+  @media (min-width: $screen-4) {
+    @content;
+  }
+}
+@mixin xxl {
+  @media (min-width: $screen-5) {
+    @content;
+  }
+}

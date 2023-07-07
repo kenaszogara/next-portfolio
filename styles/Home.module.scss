@@ -1,0 +1,47 @@
+@import "@/styles/_screen.scss";
+
+.container {
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .main {
+    padding: 5rem 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    @include lg {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .title {
+      font-family: Montserrat;
+      font-weight: bold;
+      font-size: 36px;
+
+      @include lg {
+        font-size: 66px;
+        max-width: 555px;
+      }
+    }
+
+    .brand {
+      display: none;
+
+      @include lg {
+        display: block;
+        width: 240px;
+        height: 270px;
+        position: relative;
+      }
+    }
+  }
+}
