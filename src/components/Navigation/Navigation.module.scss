@@ -1,0 +1,14 @@
+.navigation {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+
+	li {
+		font-family: Montserrat;
+		font-weight: 400;
+		font-size: 36;
+		cursor: pointer;
+	}
+}

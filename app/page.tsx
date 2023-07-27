@@ -1,11 +1,8 @@
-import Image from 'next/image';
 import styles from '@/styles/Home.module.scss';
 import { getAllPostNames } from '@/lib/posts';
-import Link from 'next/link';
-import { format } from 'date-fns';
-import { Footer } from '@/components/Footer';
 import configData from '@/config/config.json';
 import Trapesium from '@/components/Trapesium';
+import Navigation from '@/components/Navigation';
 
 const getPathsData = async () => {
 	const paths = getAllPostNames();
@@ -35,7 +32,7 @@ export default async function Home() {
 	const { paths, tags } = await getPathsData();
 
 	return (
-		<div className={`${styles.container} bg-dark-900 `}>
+		<>
 			<main className={`${styles.main} max-w-4xl`}>
 				<h1 className={`${styles.title}`}>{configData.title}</h1>
 
@@ -100,40 +97,40 @@ export default async function Home() {
         </div> */}
 
 				{/* <div className={`${styles.grid} md:flex-col w-full px-4`}>
-          {paths.map((path, index) => {
-            return (
-              <Link
-                href={`/posts/${path.params.slug}`}
-                key={index}
-                className={`${styles.card} flex-col md:flex-row w-full`}
-              >
-                <div className={` md:max-w-lg md:mb-0 md:mr-auto`}>
-                  <h3 className={`font-bold text-2xl mb-4  break-normal`}>
-                    {path.params.title}
-                  </h3>
-                  <div className={`flex flex-wrap flex-row`}>
-                    {path.params.tags.map((tag, i) => {
-                      return (
-                        <div
-                          key={i}
-                          className={`m-1 border-2 rounded px-2 py-1`}
-                        >
-                          {tag}
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-                <p className={`font-normal`}>
-                  {format(new Date(path.params.date), "MMM d, yyyy")}
-                </p>
-              </Link>
-            );
-          })}
-        </div> */}
+					{paths.map((path, index) => {
+						return (
+							<Link
+								href={`/posts/${path.params.slug}`}
+								key={index}
+								className={`${styles.card} flex-col md:flex-row w-full`}
+							>
+								<div className={` md:max-w-lg md:mb-0 md:mr-auto`}>
+									<h3 className={`font-bold text-2xl mb-4  break-normal`}>
+										{path.params.title}
+									</h3>
+									<div className={`flex flex-wrap flex-row`}>
+										{path.params.tags.map((tag, i) => {
+											return (
+												<div
+													key={i}
+													className={`m-1 border-2 rounded px-2 py-1`}
+												>
+													{tag}
+												</div>
+											);
+										})}
+									</div>
+								</div>
+								<p className={`font-normal`}>
+									{format(new Date(path.params.date), 'MMM d, yyyy')}
+								</p>
+							</Link>
+						);
+					})}
+				</div> */}
 			</main>
 
-			<Footer config={configData} />
-		</div>
+			<Navigation />
+		</>
 	);
 }
