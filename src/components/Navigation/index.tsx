@@ -9,7 +9,9 @@ export default function Navigation() {
 				<li>expertise</li>
 			</Link>
 			<li>socials</li>
-			<li>posts</li>
+			<Link href={'/posts'}>
+				<li>posts</li>
+			</Link>
 		</ul>
 	);
 }
