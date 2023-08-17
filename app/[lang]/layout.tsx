@@ -1,22 +1,30 @@
 import Script from 'next/script';
 import { Metadata } from 'next';
 import configData from '@/config/config.json';
-import '../styles/globals.scss';
+import './../../styles/globals.scss';
 import fonts from '@/fonts';
 import styles from '@/styles/Home.module.scss';
+import { dir } from 'i18next';
+import { languages } from './../../i18n/settings';
 
 export const metadata: Metadata = {
 	title: configData.title,
 	description: configData.tagline
 };
 
+export async function generateStaticParams() {
+	return languages.map((lng) => ({ lng }));
+}
+
 export default function RootLayout({
-	children
+	children,
+	params: { lng }
 }: {
 	children: React.ReactNode;
+	params: { lng: string };
 }) {
 	return (
-		<html lang="en">
+		<html lang={lng} dir={dir(lng)}>
 			<body className={`bg-black-900 text-white-900 ${fonts}`}>
 				<div className={`${styles.container} bg-black-900 `}>{children}</div>
 			</body>
