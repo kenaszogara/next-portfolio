@@ -1,16 +1,18 @@
 import Link from 'next/link';
 import styles from './Navigation.module.scss';
 
-export default function Navigation() {
+type NavigationProps = {
+	active: 'home' | 'post';
+};
+
+export default function Navigation({ active }: NavigationProps) {
 	return (
 		<ul className={`${styles.navigation} max-w-4xl`}>
-			<li>resume/cv</li>
-			<Link href="/expertise">
-				<li>expertise</li>
+			<Link href="/">
+				<li className={active === 'home' ? styles.active : ''}>home</li>
 			</Link>
-			<li>socials</li>
 			<Link href={'/posts'}>
-				<li>posts</li>
+				<li className={active === 'post' ? styles.active : ''}>posts</li>
 			</Link>
 		</ul>
 	);

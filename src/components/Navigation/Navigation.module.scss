@@ -10,5 +10,9 @@
 		font-weight: 400;
 		font-size: 36;
 		cursor: pointer;
+
+		&.active {
+			text-decoration: underline;
+		}
 	}
 }

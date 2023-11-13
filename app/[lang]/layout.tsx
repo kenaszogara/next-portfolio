@@ -13,18 +13,24 @@ export const metadata: Metadata = {
 };
 
 export async function generateStaticParams() {
-	return languages.map((lng) => ({ lng }));
+	return languages.map((lng) => ({ lang: lng }));
 }
 
 export default function RootLayout({
 	children,
-	params: { lng }
+	params: { lang }
 }: {
 	children: React.ReactNode;
-	params: { lng: string };
+	params: { lang: string };
 }) {
 	return (
-		<html lang={lng} dir={dir(lng)}>
+		<html lang={lang} dir={dir(lang)}>
+			<head>
+				<Script
+					src="https://kit.fontawesome.com/1abde91e4d.js"
+					strategy="beforeInteractive"
+				/>
+			</head>
 			<body className={`bg-black-900 text-white-900 ${fonts}`}>
 				<div className={`${styles.container} bg-black-900 `}>{children}</div>
 			</body>
