@@ -1,12 +1,22 @@
-import { NextResponse } from 'next/server';
 import acceptLanguage from 'accept-language';
+import { NextResponse } from 'next/server';
 import { fallbackLng, languages } from './i18n/settings';
 
 acceptLanguage.languages(languages);
 
 export const config = {
 	// matcher: '/:lng*'
-	matcher: ['/((?!api|_next/static|_next/image|assets|favicon.ico|sw.js).*)']
+	/*
+	 * Match all request paths except for the ones starting with:
+	 * - api (API routes)
+	 * - _next/static (static files)
+	 * - _next/image (image optimization files)
+	 * - favicon.ico (favicon file)
+	 * - images (public folder)
+	 */
+	matcher: [
+		'/((?!api|_next/static|_next/image|assets|favicon.ico|sw.js|images).*)'
+	]
 };
 
 const cookieName = 'i18next';

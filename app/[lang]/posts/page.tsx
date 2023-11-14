@@ -1,7 +1,16 @@
 import Navigation from '@/components/Navigation';
+import Tag from '@/components/Tag';
 import { getAllPostNames } from '@/lib/posts';
+import cn from 'classnames';
 import { format } from 'date-fns';
+import { Roboto } from 'next/font/google';
 import Link from 'next/link';
+
+const font = Roboto({
+	subsets: ['latin'],
+	display: 'swap',
+	weight: '400'
+});
 
 const getPathsData = async () => {
 	const paths = getAllPostNames();
@@ -33,42 +42,40 @@ export default async function PostPage() {
 	return (
 		<>
 			<Navigation active="post" />
-			<div>
-				<div className={`md:flex-col w-full px-4`}>
+
+			<main className={cn('mt-10', font.className)}>
+				<h1 className={'bold mb-5 text-3xl'}>Please read my blog</h1>
+
+				<div className={`w-fullmd:flex-col`}>
 					{paths.map((path, index) => {
 						return (
 							<Link
 								href={`/posts/${path.params.slug}`}
 								key={index}
-								className={`flex-col md:flex-row w-full`}
+								className={`mb-6 block w-full flex-col md:flex-row`}
 							>
 								<div
-									className={` md:max-w-lg md:mb-0 md:mr-auto border rounded-md border-gray-400 text-left py-2 px-4`}
+									className={`rounded-lg  py-4 text-left  hover:shadow-lg md:mb-0 md:mr-auto`}
 								>
-									<h3 className={`font-bold text-2xl mb-4  break-normal`}>
+									<h3
+										className={`mb-1 break-normal text-2xl font-bold hover:text-gray-400`}
+									>
 										{path.params.title}
 									</h3>
-									<div className={`flex flex-wrap flex-row`}>
+									<p className={`mb-3 font-normal text-gray-400`}>
+										{format(new Date(path.params.date), 'MMM d, yyyy')}
+									</p>
+									<div className={`flex flex-row flex-wrap gap-2`}>
 										{path.params.tags.map((tag, i) => {
-											return (
-												<div
-													key={i}
-													className={`m-1 border-2 rounded px-2 py-1`}
-												>
-													{tag}
-												</div>
-											);
+											return <Tag key={i} text={tag} />;
 										})}
 									</div>
 								</div>
-								<p className={`font-normal mb-8`}>
-									{format(new Date(path.params.date), 'MMM d, yyyy')}
-								</p>
 							</Link>
 						);
 					})}
 				</div>
-			</div>
+			</main>
 		</>
 	);
 }

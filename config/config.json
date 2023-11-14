@@ -1,12 +1,12 @@
 {
-  "title": "Hi, I'm Kenas. Coder. Gamer. Designer",
-  "tagline": "Welcome to my blogsite, here I share my works, projects, and code snippets",
-  "logo": "/images/logo.png",
-  "bgimage": "/images/header-bg.jpg",
-  "profilePic": "/images/pixil-frame-0.png",
-  "footerContent": "@kenaszogara 2020",
-  "contact": {
-    "email": "kenaszogara@live.com",
-    "phone": "https://api.whatsapp.com/send/?phone=6282264639465&text=Hello%20Kenas%20Zogara,%20nice%20to%20meet%20you!"
-  }
+	"title": "Hi, I'm Kenas 👋",
+	"tagline": "Welcome to my blogsite, here I share my works, projects, and code snippets",
+	"logo": "/images/logo.png",
+	"bgimage": "/images/header-bg.jpg",
+	"profilePic": "/images/pixil-frame-0.png",
+	"footerContent": "@kenaszogara 2020",
+	"contact": {
+		"email": "kenaszogara@live.com",
+		"phone": "https://api.whatsapp.com/send/?phone=6282264639465&text=Hello%20Kenas%20Zogara,%20nice%20to%20meet%20you!"
+	}
 }

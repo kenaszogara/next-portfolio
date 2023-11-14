@@ -1,11 +1,9 @@
-import Script from 'next/script';
-import { Metadata } from 'next';
 import configData from '@/config/config.json';
-import './../../styles/globals.scss';
-import fonts from '@/fonts';
-import styles from '@/styles/Home.module.scss';
 import { dir } from 'i18next';
+import { Metadata } from 'next';
+import Script from 'next/script';
 import { languages } from './../../i18n/settings';
+import './../../styles/globals.scss';
 
 export const metadata: Metadata = {
 	title: configData.title,
@@ -24,15 +22,15 @@ export default function RootLayout({
 	params: { lang: string };
 }) {
 	return (
-		<html lang={lang} dir={dir(lang)}>
+		<html lang={lang} dir={dir(lang)} className=" bg-black-900">
 			<head>
 				<Script
 					src="https://kit.fontawesome.com/1abde91e4d.js"
 					strategy="beforeInteractive"
 				/>
 			</head>
-			<body className={`bg-black-900 text-white-900 ${fonts}`}>
-				<div className={`${styles.container} bg-black-900 `}>{children}</div>
+			<body className={'text-white-900 mx-4 my-10 max-w-3xl lg:mx-auto'}>
+				{children}
 			</body>
 			<Script src="https://unpkg.com/@themesberg/flowbite@1.3.0/dist/flowbite.bundle.js" />
 		</html>

@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import styles from './Navigation.module.scss';
 
 type NavigationProps = {
 	active: 'home' | 'post';
@@ -7,12 +6,24 @@ type NavigationProps = {
 
 export default function Navigation({ active }: NavigationProps) {
 	return (
-		<ul className={`${styles.navigation} max-w-4xl`}>
-			<Link href="/">
-				<li className={active === 'home' ? styles.active : ''}>home</li>
+		<ul className={`flex w-full `}>
+			<Link href="/" className="mr-4 cursor-pointer hover:underline">
+				<li
+					className={
+						active === 'home' ? 'text-white underline' : 'text-gray-400'
+					}
+				>
+					home
+				</li>
 			</Link>
-			<Link href={'/posts'}>
-				<li className={active === 'post' ? styles.active : ''}>posts</li>
+			<Link href={'/posts'} className="cursor-pointer hover:underline">
+				<li
+					className={
+						active === 'post' ? 'text-white underline' : 'text-gray-400'
+					}
+				>
+					posts
+				</li>
 			</Link>
 		</ul>
 	);
