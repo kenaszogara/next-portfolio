@@ -44,7 +44,9 @@ export function middleware(req) {
 			refererUrl.pathname.startsWith(`/${l}`)
 		);
 		const response = NextResponse.next();
+
 		if (lngInReferer) response.cookies.set(cookieName, lngInReferer);
+
 		return response;
 	}
 
