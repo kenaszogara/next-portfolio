@@ -1,4 +1,5 @@
 import CodeBlock from '@/components/CodeBlock';
+import Custom404 from '@/components/Custom404';
 import { Footer } from '@/components/Footer';
 import { SocialShareButton } from '@/components/SocialShareButton';
 import configData from '@/config/config.json';
@@ -6,7 +7,6 @@ import { getAllPostSlug, getPostData } from '@/lib/posts';
 import styles from '@/styles/Article.module.css';
 import { format } from 'date-fns';
 import Image from 'next/image';
-import { redirect } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 
 type PageProps = {
@@ -97,11 +97,9 @@ export async function generateStaticParams() {
 export default async function Page({ params }: PageProps) {
 	const { postData, slug } = await getPostDataFromSlug(params.slug);
 
-	if (postData === null) {
-		redirect('/404');
-	}
+	console.log(slug);
 
-	console.log(postData.image);
+	if (postData === null) return <Custom404 />;
 
 	return (
 		<div className={`mt-4 md:mt-0`}>
