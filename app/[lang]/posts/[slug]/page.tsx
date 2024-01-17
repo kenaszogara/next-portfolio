@@ -41,6 +41,7 @@ export async function generateMetadata({ params, searchParams }: MetaProps) {
 	return {
 		title: postData.title,
 		description,
+		metadataBase: new URL(hostname || 'http://localhost:3000'),
 		openGraph: {
 			title: postData.title,
 			description: description,
