@@ -43,7 +43,7 @@ export function getAllPostNames() {
 	const fileNames = fs.readdirSync(postsDirectory);
 
 	return fileNames.map((fileName) => {
-		const fullPath = path.join(postsDirectory, `${fileName}`);
+		const fullPath = path.join(process.cwd(), postsDirectory, `${fileName}`);
 		const fileContents = fs.readFileSync(fullPath, 'utf8');
 
 		// Use gray-matter to parse the post metadata section
