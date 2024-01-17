@@ -1,20 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Link } from 'lucide-react';
 
 export const SocialShareButton = ({ data, className = '' }) => {
-	const [isReady, setIsReady] = useState(false);
-
 	const hostname = process.env.hostname;
 	const fbid = process.env.fbid;
 	const url = `${hostname}/posts/${data.slug}`;
-
-	//  needed to solve hydration error
-	useEffect(() => {
-		setIsReady(true);
-	}, []);
-
-	if (!isReady) return null;
 
 	return (
 		<span className={className}>
@@ -50,7 +41,7 @@ export const SocialShareButton = ({ data, className = '' }) => {
 				data-tooltip-trigger="click"
 			>
 				<circle cx="32" cy="32" r="31" fill="#00b800"></circle>
-				<i className="fas fa-link"></i>
+				<Link />
 			</button>
 			<div
 				id="tooltip-click"
