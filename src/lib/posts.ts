@@ -33,6 +33,7 @@ export async function getPostData(id) {
 			content: matterResult.content
 		};
 	} catch (error) {
+		console.log(error);
 		return null;
 	}
 }
