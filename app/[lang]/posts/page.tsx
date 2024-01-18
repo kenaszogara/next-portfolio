@@ -1,16 +1,8 @@
 import Navigation from '@/components/Navigation';
 import Tag from '@/components/Tag';
 import { getAllPostNames } from '@/lib/posts';
-import cn from 'classnames';
 import { format } from 'date-fns';
-import { Roboto } from 'next/font/google';
 import Link from 'next/link';
-
-const font = Roboto({
-	subsets: ['latin'],
-	display: 'swap',
-	weight: '400'
-});
 
 const getPathsData = async () => {
 	const paths = getAllPostNames();
@@ -43,7 +35,7 @@ export default async function PostPage() {
 		<>
 			<Navigation active="post" />
 
-			<main className={cn('mt-10', font.className)}>
+			<main className={'mt-10'}>
 				<h1 className={'bold mb-5 text-3xl'}>Please read my blog</h1>
 
 				<div className={`w-fullmd:flex-col`}>

@@ -1,16 +1,16 @@
 import Link from 'next/link';
 
 type NavigationProps = {
-	active: 'home' | 'post';
+	active: 'home' | 'post' | 'tools';
 	breadcrumbs?: string;
 };
 
 export default function Navigation({ active, breadcrumbs }: NavigationProps) {
 	return (
-		<ul className={`flex w-full `}>
+		<>
 			{!breadcrumbs && (
-				<>
-					<Link href="/" className="mr-4 cursor-pointer hover:underline">
+				<ul className={`flex w-full gap-4`}>
+					<Link href="/" className="cursor-pointer hover:underline">
 						<li
 							className={
 								active === 'home' ? 'text-white underline' : 'text-gray-400'
@@ -28,24 +28,27 @@ export default function Navigation({ active, breadcrumbs }: NavigationProps) {
 							posts
 						</li>
 					</Link>
-				</>
+					<Link href={'/tools'} className="cursor-pointer hover:underline">
+						<li
+							className={
+								active === 'tools' ? 'text-white underline' : 'text-gray-400'
+							}
+						>
+							tools
+						</li>
+					</Link>
+				</ul>
 			)}
 
 			{breadcrumbs && (
 				<div className="flex items-center gap-2">
-					<Link href={'/posts'} className="cursor-pointer hover:underline">
-						<li
-							className={
-								active === 'post' ? 'text-white underline' : 'text-gray-400'
-							}
-						>
-							posts
-						</li>
+					<Link href={`/${active}`} className="cursor-pointer hover:underline">
+						<div className={'text-white underline'}>{active}</div>
 					</Link>
 					<span>{'/'}</span>
 					<span>{breadcrumbs}</span>
 				</div>
 			)}
-		</ul>
+		</>
 	);
 }
