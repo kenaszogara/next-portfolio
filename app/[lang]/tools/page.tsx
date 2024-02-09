@@ -1,5 +1,4 @@
 import Navigation from '@/components/Navigation';
-import { Hammer, PaintBucket, Paintbrush } from 'lucide-react';
 
 export default async function ToolPage() {
 	return (
@@ -7,14 +6,18 @@ export default async function ToolPage() {
 			<Navigation active="tools" />
 
 			<main className={'mt-10'}>
-				<h1 className="mb-4 text-2xl">
-					This is the tools page. It's still under construction
-				</h1>
-				<div className="flex gap-2">
-					<Hammer className="text-yellow-500" />
-					<PaintBucket className="text-red-500" />
-					<Paintbrush className="text-blue-500" />
-				</div>
+				<h1 className="mb-4 text-2xl">Tools</h1>
+				<p>
+					This page aims to provide a set of useful snippets for library that I
+					used on a day-to-day basis. These snippets act as a tool to improve my
+					workflow.
+				</p>
+
+				<div>Search...</div>
+
+				<div>List of tools</div>
+
+				<pre>hello world</pre>
 			</main>
 		</>
 	);

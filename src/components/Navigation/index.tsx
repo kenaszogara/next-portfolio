@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 type NavigationProps = {
-	active: 'home' | 'post' | 'tools';
+	active: 'home' | 'posts' | 'tools';
 	breadcrumbs?: string;
 };
 
@@ -22,7 +22,7 @@ export default function Navigation({ active, breadcrumbs }: NavigationProps) {
 					<Link href={'/posts'} className="cursor-pointer hover:underline">
 						<li
 							className={
-								active === 'post' ? 'text-white underline' : 'text-gray-400'
+								active === 'posts' ? 'text-white underline' : 'text-gray-400'
 							}
 						>
 							posts

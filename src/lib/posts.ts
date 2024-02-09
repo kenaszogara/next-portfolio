@@ -2,7 +2,7 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
 
-const postsDirectory = 'posts';
+const postsDirectory = 'articles/posts';
 
 export type MatterResultData = {
 	title: string;

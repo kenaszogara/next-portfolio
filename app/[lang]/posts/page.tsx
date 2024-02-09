@@ -33,7 +33,7 @@ export default async function PostPage() {
 
 	return (
 		<>
-			<Navigation active="post" />
+			<Navigation active="posts" />
 
 			<main className={'mt-10'}>
 				<h1 className={'bold mb-5 text-3xl'}>Please read my blog</h1>

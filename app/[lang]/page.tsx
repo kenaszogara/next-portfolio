@@ -20,9 +20,9 @@ export default async function Home() {
 				<h1 className={'bold mb-5 text-3xl'}>{configData.title}</h1>
 
 				<p className={'mb-2 text-lg leading-relaxed text-gray-400'}>
-					I'm a Frontend Developer currently working in Taiwan from Indonesia.
-					As Software Developer I'm loving my journey and I look forward to
-					where this will takes me in the future.
+					I'm a Frontend Developer from Indonesia based in Taiwan. As Software
+					Developer I'm loving my journey and I look forward to where this will
+					takes me in the future.
 				</p>
 
 				{/* TODO companies I worked with previously and projects I did */}
