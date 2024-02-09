@@ -5,7 +5,7 @@ import Navigation from '@/components/Navigation';
 import { SocialShareButton } from '@/components/SocialShareButton';
 import configData from '@/config/config.json';
 import { getAllPostSlug, getPostData } from '@/lib/posts';
-import styles from '@/styles/Article.module.css';
+import styles from '@/styles/Article.module.scss';
 import { format } from 'date-fns';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
