@@ -35,3 +35,11 @@ yarn-error.log*
 
 #obsidian
 .obsidian
+
+# drizzle local db
+local.db
+local.db-shm
+local.db-wal
+
+# drizzle studio
+db/drizzle
