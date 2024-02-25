@@ -7,7 +7,9 @@
 		"build": "next build",
 		"postbuild": "next-sitemap --config sitemap.js",
 		"start": "next start",
-		"drizzle-studio": "yarn drizzle-kit studio --port 3200 --verbose"
+		"drizzle-studio": "yarn drizzle-kit studio --port 3200 --verbose",
+		"db:migrate": "yarn drizzle-kit generate:sqlite",
+		"db:push": "yarn drizzle-kit push:sqlite"
 	},
 	"dependencies": {
 		"@hookform/resolvers": "^3.3.4",
