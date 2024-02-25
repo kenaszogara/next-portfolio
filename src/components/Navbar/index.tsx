@@ -17,13 +17,14 @@ const Navbar = () => {
 				<img
 					src="/images/pixil-frame-0.png"
 					alt="Next.js"
-					className="w-9 h-9"
+					className="h-9 w-9"
 				/>
 			</NavbarBrand>
 			<NavbarToggler />
 			<NavbarCollapse>
 				<NavbarNav orientation="start">
 					<NavbarItem>
+						<></>
 						{/* <NavbarLink href="#">Documentation</NavbarLink> */}
 					</NavbarItem>
 				</NavbarNav>

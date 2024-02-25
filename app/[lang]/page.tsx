@@ -1,7 +1,7 @@
-import Card from '@/components/Card';
-import Navigation from '@/components/Navigation';
-import Tag from '@/components/Tag';
-import configData from '@/config/config.json';
+import Card from '@components/Card';
+import Navigation from '@components/Navigation';
+import Tag from '@components/Tag';
+import configData from '@config/config.json';
 import cn from 'classnames';
 import { Roboto } from 'next/font/google';
 

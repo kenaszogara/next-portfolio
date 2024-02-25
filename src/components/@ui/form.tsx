@@ -10,8 +10,8 @@ import {
 	useFormContext
 } from 'react-hook-form';
 
-import { Label } from '@/components/@ui/label'; // import from shared @ui component, should also adjust path
-import { cn } from '@/lib/utils'; // should adjust path to grab classnames
+import { cn } from '@lib/utils'; // should adjust path to grab classnames
+import { Label } from '@ui/label'; // import from shared @ui component, should also adjust path
 
 const Form = FormProvider;
 

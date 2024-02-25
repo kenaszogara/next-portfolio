@@ -1,7 +1,6 @@
 'use client';
 
-import Navigation from '@/components/Navigation';
-import styles from '@/styles/Home.module.scss';
+import styles from '@styles/Home.module.scss';
 
 export default function ExpertisePage({ params: { lang } }) {
 	return (

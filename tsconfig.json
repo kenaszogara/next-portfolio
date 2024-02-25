@@ -20,12 +20,13 @@
 		],
 		"baseUrl": ".",
 		"paths": {
-			"@/components/*": ["src/components/*"],
-			"@/lib/*": ["src/lib/*"],
-			"@/styles/*": ["styles/*"],
-			"@/fonts": ["fonts/"],
-			"@/config/*": ["config/*"],
-			"@/i18n/*": ["i18n/*"]
+			"@ui/*": ["src/components/@ui/*"],
+			"@components/*": ["src/components/*"],
+			"@lib/*": ["src/lib/*"],
+			"@styles/*": ["styles/*"],
+			"@fonts": ["fonts/"],
+			"@config/*": ["config/*"],
+			"@i18n/*": ["i18n/*"]
 		},
 		"strictNullChecks": true
 	},

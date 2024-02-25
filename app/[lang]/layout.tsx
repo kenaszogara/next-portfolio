@@ -1,4 +1,4 @@
-import configData from '@/config/config.json';
+import configData from '@config/config.json';
 import cn from 'classnames';
 import { dir } from 'i18next';
 import { Metadata } from 'next';

@@ -1,6 +1,6 @@
-import Navigation from '@/components/Navigation';
-import Tag from '@/components/Tag';
-import { getAllToolNames } from '@/lib/tools';
+import Navigation from '@components/Navigation';
+import Tag from '@components/Tag';
+import { getAllToolNames } from '@lib/tools';
 import { format } from 'date-fns';
 import Link from 'next/link';
 

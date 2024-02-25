@@ -1,11 +1,11 @@
-import CodeBlock from '@/components/CodeBlock';
-import Custom404 from '@/components/Custom404';
-import { Footer } from '@/components/Footer';
-import Navigation from '@/components/Navigation';
-import { SocialShareButton } from '@/components/SocialShareButton';
-import configData from '@/config/config.json';
-import { getAllToolSlug, getToolData } from '@/lib/tools';
-import styles from '@/styles/Article.module.scss';
+import CodeBlock from '@components/CodeBlock';
+import Custom404 from '@components/Custom404';
+import { Footer } from '@components/Footer';
+import Navigation from '@components/Navigation';
+import { SocialShareButton } from '@components/SocialShareButton';
+import configData from '@config/config.json';
+import { getAllToolSlug, getToolData } from '@lib/tools';
+import styles from '@styles/Article.module.scss';
 import { format } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
 
