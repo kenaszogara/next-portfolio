@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 type NavigationProps = {
-	active: 'home' | 'posts' | 'tools';
+	active: 'home' | 'posts' | 'tools' | 'projects';
 	breadcrumbs?: string;
 };
 
@@ -35,6 +35,15 @@ export default function Navigation({ active, breadcrumbs }: NavigationProps) {
 							}
 						>
 							tools
+						</li>
+					</Link>
+					<Link href={'/projects'} className="cursor-pointer hover:underline">
+						<li
+							className={
+								active === 'projects' ? 'text-white underline' : 'text-gray-400'
+							}
+						>
+							projects
 						</li>
 					</Link>
 				</ul>
