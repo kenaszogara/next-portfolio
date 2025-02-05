@@ -36,7 +36,10 @@ export default async function PostPage() {
 			<Navigation active="posts" />
 
 			<main className={'mt-10'}>
-				<h1 className={'bold mb-5 text-3xl'}>Please read my blog</h1>
+				<h1 className={'bold mb-5 text-3xl'}>Posts</h1>
+				<p className={'mb-5 text-gray-400'}>
+					Here are all my posts. Click on a post to read it.
+				</p>
 
 				<div className={`w-fullmd:flex-col`}>
 					{paths.map((path, index) => {
@@ -44,7 +47,7 @@ export default async function PostPage() {
 							<Link
 								href={`/posts/${path.params.slug}`}
 								key={index}
-								className={`mb-6 block w-full flex-col md:flex-row`}
+								className={`mb-6 block w-full flex-col rounded-md border border-gray-600 px-4 py-2 md:flex-row`}
 							>
 								<div
 									className={`rounded-lg  py-4 text-left  hover:shadow-lg md:mb-0 md:mr-auto`}

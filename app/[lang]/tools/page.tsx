@@ -36,14 +36,12 @@ export default async function ToolPage() {
 			<Navigation active="tools" />
 
 			<main className={'mt-10'}>
-				<h1 className="mb-4 text-2xl">Tools</h1>
-				<p>
+				<h1 className={'bold mb-5 text-3xl'}>Tools</h1>
+				<p className={'mb-5 text-gray-400'}>
 					This page aims to provide a set of useful snippets for library that I
 					used on a day-to-day basis. These snippets act as a tool to improve my
 					workflow.
 				</p>
-
-				<div>Search...</div>
 
 				<div className={`w-fullmd:flex-col`}>
 					{paths.map((path, index) => {
@@ -51,7 +49,7 @@ export default async function ToolPage() {
 							<Link
 								href={`/tools/${path.params.slug}`}
 								key={index}
-								className={`mb-6 block w-full flex-col md:flex-row`}
+								className={`mb-6 block w-full flex-col rounded-md border border-gray-600 px-4 py-2 md:flex-row`}
 							>
 								<div
 									className={`rounded-lg  py-4 text-left  hover:shadow-lg md:mb-0 md:mr-auto`}
