@@ -32,7 +32,7 @@ const projects: Project[] = [
 export default async function ProjectsPage() {
 	return (
 		<>
-			<Navigation active="posts" />
+			<Navigation active="projects" />
 
 			<main className={'mt-10'}>
 				<h1 className={'bold mb-5 text-3xl'}>Projects</h1>
