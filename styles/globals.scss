@@ -1,55 +1,21 @@
 @import 'tailwindcss';
-@import 'colors.scss';
-@import 'screen.scss';
 
-.bg-black-900 {
-	background-color: $black;
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
+	:root {
+		--background: #0d1117;
+		--foreground: #322e42;
+		--primary: #4b3a6f;
+		--secondary: #9475b6;
+		--accent: #c6c4c4;
+	}
 }
 
-.bg-white-900 {
-	background-color: $white;
-}
-
-.bg-red-900 {
-	background-color: $red;
-}
-
-.bg-yellow-900 {
-	background-color: $yellow;
-}
-
-.bg-green-900 {
-	background-color: $green;
-}
-
-.bg-blue-900 {
-	background-color: $blue;
-}
-
-.bg-dark-800 {
-	background-color: #242424;
-}
-
-.text-green-900 {
-	color: $green;
-}
-
-.text-blue-900 {
-	color: $blue;
-}
-
-.text-yellow-900 {
-	color: $yellow;
-}
-
-.text-red-900 {
-	color: $red;
-}
-
-.text-white-900 {
-	color: $white;
-}
-
-.text-black-900 {
-	color: $black;
+@theme {
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-primary: var(--primary);
+	--color-secondary: var(--secondary);
+	--color-accent: var(--accent);
 }

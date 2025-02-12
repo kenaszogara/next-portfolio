@@ -4,7 +4,7 @@ type PropsType = {
 
 export default function Tag({ text }: PropsType) {
 	return (
-		<div className="mr-1 whitespace-nowrap rounded-md border border-gray-400 bg-gray-700 px-2 py-1 shadow-md">
+		<div className="bg-primary border-secondary mr-1 whitespace-nowrap rounded-md border px-2 py-1 text-white shadow-md">
 			{text}
 		</div>
 	);
