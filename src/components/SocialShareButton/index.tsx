@@ -1,11 +1,24 @@
 'use client';
 
-import { Link } from 'lucide-react';
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger
+} from '@components/@ui/tooltip';
+import { Repeat2 } from 'lucide-react';
+import { motion } from 'motion/react';
 
-export const SocialShareButton = ({ data, className = '' }) => {
+export const SocialShareButton = ({
+	slug,
+	className = ''
+}: {
+	slug: string;
+	className?: string;
+}) => {
 	const hostname = process.env.hostname;
 	const fbid = process.env.fbid;
-	const url = `${hostname}/posts/${data.slug}`;
+	const url = `${hostname}/posts/${slug}`;
 
 	return (
 		<span className={className}>
@@ -34,23 +47,34 @@ export const SocialShareButton = ({ data, className = '' }) => {
         <LineIcon size={32} round />
       </LineShareButton> */}
 
-			<button
-				className="w-8 rounded-full border-none bg-gray-600 p-1 text-gray-200"
-				onClick={() => navigator.clipboard.writeText(url)}
-				data-tooltip-target="tooltip-click"
-				data-tooltip-trigger="click"
-			>
-				<circle cx="32" cy="32" r="31" fill="#00b800"></circle>
-				<Link />
-			</button>
-			<div
-				id="tooltip-click"
-				role="tooltip"
-				className="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm dark:bg-gray-700"
-			>
-				Copy to clipboard
-				<div className="tooltip-arrow" data-popper-arrow></div>
-			</div>
+			<TooltipProvider>
+				<Tooltip>
+					<TooltipTrigger>
+						<motion.button
+							className="w-8 cursor-pointer rounded-full border border-white p-1"
+							onClick={() => navigator.clipboard.writeText(url)}
+							data-tooltip-target="tooltip-click"
+							data-tooltip-trigger="hover"
+							whileTap={{
+								scale: 0.9
+							}}
+							initial={{
+								color: 'var(--color-white)'
+							}}
+							whileHover={{
+								borderColor: 'var(--color-secondary)',
+								color: 'var(--color-secondary)'
+							}}
+						>
+							<circle cx="32" cy="32" r="31" fill="#00b800"></circle>
+							<Repeat2 />
+						</motion.button>
+					</TooltipTrigger>
+					<TooltipContent>
+						<p>Copy to clipboard</p>
+					</TooltipContent>
+				</Tooltip>
+			</TooltipProvider>
 		</span>
 	);
 };

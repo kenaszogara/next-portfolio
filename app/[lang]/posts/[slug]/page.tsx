@@ -117,17 +117,20 @@ export default async function Page({ params }: PageProps) {
 									<p className="mr-auto text-sm">
 										Published {format(new Date(postData?.date), 'MMM d, yyyy')}
 									</p>
-									<SocialShareButton data={postData} />
+									<SocialShareButton slug={slug} />
 								</div>
 							</div>
-							<div className="w-full md:rounded">
-								<Image
-									src={postData?.image}
-									width={900}
-									height={500}
-									alt="post image"
-								/>
-							</div>
+
+							{postData?.image && (
+								<div className="w-full overflow-hidden md:rounded">
+									<Image
+										src={postData.image}
+										width={900}
+										height={500}
+										alt="post image"
+									/>
+								</div>
+							)}
 						</header>
 
 						<article>
@@ -144,7 +147,7 @@ export default async function Page({ params }: PageProps) {
 					<div className={`text-center`}>
 						<p>Copy Link</p>
 						<SocialShareButton
-							data={postData}
+							slug={slug}
 							className={`my-4 flex items-center justify-center space-x-2`}
 						/>
 					</div>

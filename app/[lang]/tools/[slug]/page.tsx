@@ -106,7 +106,7 @@ export default async function Page({ params }: PageProps) {
 									<p className="mr-auto text-sm">
 										Published {format(new Date(postData?.date), 'MMM d, yyyy')}
 									</p>
-									<SocialShareButton data={postData} />
+									<SocialShareButton slug={slug} />
 								</div>
 							</div>
 						</header>
@@ -125,7 +125,7 @@ export default async function Page({ params }: PageProps) {
 					<div className={`text-center`}>
 						<p>Copy Link</p>
 						<SocialShareButton
-							data={postData}
+							slug={slug}
 							className={`my-4 flex items-center justify-center space-x-2`}
 						/>
 					</div>
