@@ -52,10 +52,17 @@ export default function Navigation({ active, breadcrumbs }: NavigationProps) {
 			{breadcrumbs && (
 				<div className="flex items-center gap-2">
 					<Link href={`/${active}`} className="cursor-pointer hover:underline">
-						<div className={'text-white underline'}>{active}</div>
+						<div className={'text-white'}>{active}</div>
 					</Link>
+
 					<span>{'/'}</span>
-					<span>{breadcrumbs}</span>
+
+					<Link
+						href={`/${active}/${breadcrumbs}`}
+						className="cursor-pointer hover:underline"
+					>
+						<span>{breadcrumbs}</span>
+					</Link>
 				</div>
 			)}
 		</>

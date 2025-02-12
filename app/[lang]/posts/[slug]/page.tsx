@@ -110,7 +110,9 @@ export default async function Page({ params }: PageProps) {
 					<div className="bg-dark-800 mx-auto mb-10 max-w-4xl md:rounded-md">
 						<header className={`mb-12`}>
 							<div className="px-6 pb-6 pt-12 ">
-								<h1 className="mb-4 text-4xl font-bold">{postData?.title}</h1>
+								<h1 className="mb-4 text-[120px] font-bold">
+									{postData?.title}
+								</h1>
 								<div className="flex items-baseline">
 									<p className="mr-auto text-sm">
 										Published {format(new Date(postData?.date), 'MMM d, yyyy')}
