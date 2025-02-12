@@ -37,13 +37,8 @@ export default function RootLayout({
 					strategy="beforeInteractive"
 				/>
 			</head>
-			<body
-				className={cn(
-					'text-white-900 mx-4 my-10 max-w-3xl lg:mx-auto',
-					font.className
-				)}
-			>
-				{children}
+			<body className={cn('text-white-900 h-screen ', font.className)}>
+				<div className="mx-4 my-10 max-w-3xl md:mx-auto">{children}</div>
 			</body>
 			<Script src="https://unpkg.com/@themesberg/flowbite@1.3.0/dist/flowbite.bundle.js" />
 		</html>
