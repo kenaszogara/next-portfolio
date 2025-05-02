@@ -2,6 +2,7 @@ import CodeBlock from '@components/CodeBlock';
 import Custom404 from '@components/Custom404';
 import { Footer } from '@components/Footer';
 import Navigation from '@components/Navigation';
+import PageWrapper from '@components/PageWrapper';
 import { SocialShareButton } from '@components/SocialShareButton';
 import configData from '@config/config.json';
 import { getAllPostSlug, getPostData } from '@lib/posts';
@@ -105,11 +106,12 @@ export default async function Page({ params }: PageProps) {
 	return (
 		<>
 			<Navigation active="posts" breadcrumbs={slug} />
-			<div className={`mt-4 md:mt-0`}>
+
+			<PageWrapper className={`mt-4 md:mt-0`}>
 				<main className="container mx-auto md:py-8">
 					<div className="bg-dark-800 mx-auto mb-10 max-w-4xl md:rounded-md">
 						<header className={`mb-12`}>
-							<div className="px-6 pb-6 pt-12 ">
+							<div className="px-6 pt-12 pb-6">
 								<h1 className="mb-4 text-4xl font-semibold md:text-[88px]/[88px]">
 									{postData?.title}
 								</h1>
@@ -154,7 +156,7 @@ export default async function Page({ params }: PageProps) {
 				</main>
 
 				<Footer config={configData} />
-			</div>
+			</PageWrapper>
 		</>
 	);
 }

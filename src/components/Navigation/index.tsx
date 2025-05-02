@@ -9,48 +9,32 @@ export default function Navigation({ active, breadcrumbs }: NavigationProps) {
 	return (
 		<>
 			{!breadcrumbs && (
-				<ul className={`flex w-full gap-4`}>
-					<Link href="/" className="cursor-pointer hover:underline">
-						<li
-							className={
-								active === 'home' ? 'text-white underline' : 'text-gray-400'
-							}
-						>
-							home
-						</li>
-					</Link>
-					<Link href={'/posts'} className="cursor-pointer hover:underline">
-						<li
-							className={
-								active === 'posts' ? 'text-white underline' : 'text-gray-400'
-							}
-						>
-							posts
-						</li>
-					</Link>
-					<Link href={'/tools'} className="cursor-pointer hover:underline">
-						<li
-							className={
-								active === 'tools' ? 'text-white underline' : 'text-gray-400'
-							}
-						>
-							tools
-						</li>
-					</Link>
-					<Link href={'/projects'} className="cursor-pointer hover:underline">
-						<li
-							className={
-								active === 'projects' ? 'text-white underline' : 'text-gray-400'
-							}
-						>
-							projects
-						</li>
-					</Link>
-				</ul>
+				<nav className="fixed top-0 z-[100] flex w-full justify-center px-4 py-5">
+					<ul className="flex gap-20">
+						<Link href="/" className="cursor-pointer hover:underline">
+							<li
+								className={
+									active === 'home' ? 'text-white underline' : 'text-gray-400'
+								}
+							>
+								home
+							</li>
+						</Link>
+						<Link href={'/posts'} className="cursor-pointer hover:underline">
+							<li
+								className={
+									active === 'posts' ? 'text-white underline' : 'text-gray-400'
+								}
+							>
+								posts
+							</li>
+						</Link>
+					</ul>
+				</nav>
 			)}
 
 			{breadcrumbs && (
-				<div className="flex items-center gap-2">
+				<nav className="fixed top-0 z-[100] flex w-full justify-center gap-1 px-4 py-5">
 					<Link href={`/${active}`} className="cursor-pointer hover:underline">
 						<div className={'text-white'}>{active}</div>
 					</Link>
@@ -63,7 +47,7 @@ export default function Navigation({ active, breadcrumbs }: NavigationProps) {
 					>
 						<span>{breadcrumbs}</span>
 					</Link>
-				</div>
+				</nav>
 			)}
 		</>
 	);
