@@ -33,9 +33,9 @@ export default async function PostPage() {
 
 	return (
 		<>
-			<Navigation active="posts" />
+			<Navigation active="posts" className="bg-black" />
 
-			<PageWrapper className="h-auto">
+			<PageWrapper className="h-auto pt-20">
 				<main className="mx-auto py-20 md:max-w-[900px]">
 					<h1 className={'mb-5 text-3xl font-bold uppercase'}>Posts</h1>
 

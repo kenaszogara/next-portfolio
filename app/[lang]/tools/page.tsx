@@ -52,10 +52,10 @@ export default async function ToolPage() {
 								className={`mb-6 block w-full flex-col rounded-md border border-gray-600 px-4 py-2 md:flex-row`}
 							>
 								<div
-									className={`rounded-lg  py-4 text-left  hover:shadow-lg md:mb-0 md:mr-auto`}
+									className={`rounded-lg py-4 text-left hover:shadow-lg md:mr-auto md:mb-0`}
 								>
 									<h3
-										className={`mb-1 break-normal text-2xl font-bold hover:text-gray-400`}
+										className={`mb-1 text-2xl font-bold break-normal hover:text-gray-400`}
 									>
 										{path.params.title}
 									</h3>

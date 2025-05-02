@@ -1,7 +1,7 @@
+import Breadcrumb from '@components/Breadcrumb';
 import CodeBlock from '@components/CodeBlock';
 import Custom404 from '@components/Custom404';
 import { Footer } from '@components/Footer';
-import Navigation from '@components/Navigation';
 import PageWrapper from '@components/PageWrapper';
 import { SocialShareButton } from '@components/SocialShareButton';
 import configData from '@config/config.json';
@@ -99,17 +99,18 @@ export async function generateStaticParams() {
 export default async function Page({ params }: PageProps) {
 	const { postData, slug } = await getPostDataFromSlug(params.slug);
 
-	console.log(slug);
-
 	if (postData === null) return <Custom404 />;
 
 	return (
 		<>
-			<Navigation active="posts" breadcrumbs={slug} />
-
 			<PageWrapper className={`mt-4 md:mt-0`}>
 				<main className="container mx-auto md:py-8">
-					<div className="bg-dark-800 mx-auto mb-10 max-w-4xl md:rounded-md">
+					<div className="bg-dark-800 mx-auto mb-10 max-w-4xl">
+						<Breadcrumb
+							active="posts"
+							breadcrumbs={slug}
+							className="mx-3 md:pt-20"
+						/>
 						<header className={`mb-12`}>
 							<div className="px-6 pt-12 pb-6">
 								<h1 className="mb-4 text-4xl font-semibold md:text-[88px]/[88px]">

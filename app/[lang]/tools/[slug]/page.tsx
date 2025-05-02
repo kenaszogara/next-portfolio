@@ -98,7 +98,7 @@ export default async function Page({ params }: PageProps) {
 				<main className="container mx-auto md:py-8">
 					<div className="bg-dark-800 mx-auto mb-10 max-w-4xl md:rounded-md">
 						<header className={`mb-12`}>
-							<div className="px-6 pb-6 pt-12 ">
+							<div className="px-6 pt-12 pb-6">
 								<h1 className="mb-4 text-4xl font-semibold md:text-[88px]/[88px]">
 									{postData?.title}
 								</h1>

@@ -11,13 +11,7 @@ type PostCardProps = {
 	slug: string;
 };
 
-export default function PostCard({
-	title,
-	date,
-	tags,
-	image,
-	slug
-}: PostCardProps) {
+export default function PostCard({ title, date, image }: PostCardProps) {
 	return (
 		<div
 			className={`relative h-full w-full border border-gray-600 bg-black px-4 py-2 py-4 text-left md:mr-auto md:mb-0 md:h-[413px] md:flex-row`}
