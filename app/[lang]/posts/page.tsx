@@ -40,7 +40,7 @@ export default async function PostPage() {
 					<h1 className={'mb-5 text-3xl font-bold uppercase'}>Posts</h1>
 
 					<div
-						className={`grid w-full grid-cols-1 gap-[40px] sm:grid-cols-2 md:grid-cols-3`}
+						className={`grid w-full grid-cols-1 gap-[50px] sm:grid-cols-2 md:grid-cols-3`}
 					>
 						{paths.map((path, index) => {
 							return (
