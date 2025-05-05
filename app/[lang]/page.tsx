@@ -10,19 +10,25 @@ export default async function Home() {
 			<Navigation active="home" />
 
 			<PageWrapper className="flex flex-col items-center justify-center">
-				<main>
-					<div className="mb-10 text-center">
+				<main className="">
+					<div className="mb-10 text-center md:text-center">
 						<p className="leading-none">Hi, my name is</p>
-						<h1 className={'text-[48px]/15 font-semibold'}>Kenas Zogara</h1>
-						<p className={'text-accent text-[32px] leading-relaxed'}>
+						<h1 className={'text-4xl font-semibold md:text-[48px]/15'}>
+							Kenas Zogara
+						</h1>
+						<p
+							className={'text-accent text-2xl leading-relaxed md:text-[32px]'}
+						>
 							I build things for the web
 						</p>
 					</div>
 
-					<div className="mb-10 max-w-[448px]">
-						<p className="text-center text-[24px] text-gray-300">
-							I consider myself a modern web developer with hands-on experience
-							in
+					<div className="mb-10 max-w-[448px] text-center">
+						<p className="text-lg text-gray-300 md:block md:text-[24px]">
+							<span>
+								I consider myself a modern web developer with hands-on
+								experience in
+							</span>
 							<br />
 							<FlickeringText order={1} repeatDelay={5}>
 								Frontend
@@ -36,11 +42,11 @@ export default async function Home() {
 								DevOps
 							</FlickeringText>
 							,&nbsp;
+							<br />
 							<FlickeringText order={4} repeatDelay={5}>
 								SEO
 							</FlickeringText>
-							,&nbsp;and
-							<br />
+							,&nbsp;and&nbsp;
 							<FlickeringText order={5} repeatDelay={5}>
 								Designing UI/UX
 							</FlickeringText>
