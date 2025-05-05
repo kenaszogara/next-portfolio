@@ -1,6 +1,7 @@
 import Navigation from '@components/Navigation';
 import PageWrapper from '@components/PageWrapper';
 import { Button } from '@ui/button';
+import AnimatedLink from 'app/[lang]/AnimatedLink';
 import FlickeringText from 'app/[lang]/FlickeringText';
 
 export default async function Home() {
@@ -66,12 +67,15 @@ export default async function Home() {
 			</PageWrapper>
 
 			<footer className="fixed bottom-0 flex w-full justify-center gap-[150px] p-10">
-				<a href="https://www.linkedin.com/in/kenas-zogara/" target="_blank">
-					<p className="text-gray-300">LinkedIn</p>
-				</a>
-				<a href="https://github.com/kenaszogara" target="_blank">
-					<p className="text-gray-300">Github</p>
-				</a>
+				<AnimatedLink
+					href="https://www.linkedin.com/in/kenas-zogara/"
+					target="_blank"
+				>
+					<p className="hover:text-secondary text-gray-300">LinkedIn</p>
+				</AnimatedLink>
+				<AnimatedLink href="https://github.com/kenaszogara" target="_blank">
+					<p className="hover:text-secondary text-gray-300">Github</p>
+				</AnimatedLink>
 			</footer>
 		</>
 	);
