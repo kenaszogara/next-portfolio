@@ -1,7 +1,6 @@
 import CodeBlock from '@components/CodeBlock';
 import Custom404 from '@components/Custom404';
 import { Footer } from '@components/Footer';
-import Navigation from '@components/Navigation';
 import { SocialShareButton } from '@components/SocialShareButton';
 import configData from '@config/config.json';
 import { getAllToolSlug, getToolData } from '@lib/tools';
@@ -93,7 +92,6 @@ export default async function Page({ params }: PageProps) {
 
 	return (
 		<>
-			<Navigation active="tools" breadcrumbs={slug} />
 			<div className={`mt-4 md:mt-0`}>
 				<main className="container mx-auto md:py-8">
 					<div className="bg-dark-800 mx-auto mb-10 max-w-4xl md:rounded-md">
