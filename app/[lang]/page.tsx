@@ -1,6 +1,7 @@
 import Navigation from '@components/Navigation';
 import PageWrapper from '@components/PageWrapper';
 import { Button } from '@ui/button';
+import FlickeringText from 'app/[lang]/FlickeringText';
 
 export default async function Home() {
 	return (
@@ -22,31 +23,53 @@ export default async function Home() {
 							I consider myself a modern web developer with hands-on experience
 							in
 							<br />
-							<span className="font-bold text-white">Frontend</span>,&nbsp;
-							<span className="font-bold text-white">Backend</span>,&nbsp;
-							<span className="font-bold text-white">DevOps</span>,&nbsp;
-							<span className="font-bold text-white">SEO</span>,&nbsp;and
+							<FlickeringText order={1} repeatDelay={5}>
+								Frontend
+							</FlickeringText>
+							,&nbsp;
+							<FlickeringText order={2} repeatDelay={5}>
+								Backend
+							</FlickeringText>
+							,&nbsp;
+							<FlickeringText order={3} repeatDelay={5}>
+								DevOps
+							</FlickeringText>
+							,&nbsp;
+							<FlickeringText order={4} repeatDelay={5}>
+								SEO
+							</FlickeringText>
+							,&nbsp;and
 							<br />
-							<span className="font-bold text-white">Designing UI/UX</span>
+							<FlickeringText order={5} repeatDelay={5}>
+								Designing UI/UX
+							</FlickeringText>
 						</p>
 					</div>
 
 					<div className="flex justify-center gap-4">
-						<Button variant="secondary" className="w-[140px]">
-							Hire me
-						</Button>
-						<Button variant="outline" className="w-[140px]">
-							Get my resume
-						</Button>
+						<a href="mailto:kenaszogara@live.com">
+							<Button variant="secondary" className="w-[140px]">
+								Hire me
+							</Button>
+						</a>
+						<a
+							href="/files/kenas_zogara_cv_05_2025.pdf"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<Button variant="outline" className="w-[140px]">
+								Get my resume
+							</Button>
+						</a>
 					</div>
 				</main>
 			</PageWrapper>
 
 			<footer className="fixed bottom-0 flex w-full justify-center gap-[150px] p-10">
-				<a href="https://www.linkedin.com/in/kenas-zogara/">
+				<a href="https://www.linkedin.com/in/kenas-zogara/" target="_blank">
 					<p className="text-gray-300">LinkedIn</p>
 				</a>
-				<a href="https://github.com/kenaszogara">
+				<a href="https://github.com/kenaszogara" target="_blank">
 					<p className="text-gray-300">Github</p>
 				</a>
 			</footer>

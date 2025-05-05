@@ -2,6 +2,7 @@ import Breadcrumb from '@components/Breadcrumb';
 import CodeBlock from '@components/CodeBlock';
 import Custom404 from '@components/Custom404';
 import { Footer } from '@components/Footer';
+import Navigation from '@components/Navigation';
 import PageWrapper from '@components/PageWrapper';
 import { SocialShareButton } from '@components/SocialShareButton';
 import configData from '@config/config.json';
@@ -103,6 +104,8 @@ export default async function Page({ params }: PageProps) {
 
 	return (
 		<>
+			<Navigation active="posts" className="bg-black" />
+
 			<PageWrapper className={`mt-4 md:mt-0`}>
 				<main className="container mx-auto md:py-8">
 					<div className="bg-dark-800 mx-auto mb-10 max-w-4xl">

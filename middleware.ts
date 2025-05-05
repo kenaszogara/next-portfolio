@@ -13,9 +13,10 @@ export const config = {
 	 * - _next/image (image optimization files)
 	 * - favicon.ico (favicon file)
 	 * - images (public folder)
+	 * - files (public folder)
 	 */
 	matcher: [
-		'/((?!api|_next/static|_next/image|assets|favicon.ico|sw.js|images).*)'
+		'/((?!api|_next/static|_next/image|assets|favicon.ico|sw.js|images|files).*)'
 	]
 };
 
